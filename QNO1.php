@@ -20,18 +20,23 @@
         //Recursive function
         function recursive($string, $index){
 
+            //checking if the character is a or not
             if($string[$index] == 'a'){
+
+                //returning its length
                 return $index+1;
             }
             else{
                 return recursive($string, $index+1);
             }
 
+
         }
 
         
         //Set our start number to 1.
         $index = 0;
+        
         $string = $_POST['text'];
         
         //call recursive function.

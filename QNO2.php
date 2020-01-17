@@ -10,16 +10,24 @@
             echo "<span style='color:red;'>Please enter your input</span>";
         }
         else{
+
+            //setting counter variable to zero
             $counter=0;
+
+            //getting the form submitted value
             $string = $_POST['value'];
         
+            //converting string into array
             $characterArray = str_split($string);
             //$characterArray = preg_split("//", $string);
 
+            //declaring an array
             $result = [];
 
+            //looping through each element of character array
             foreach ($characterArray as $array)
             {
+                //checking if the given character is set or not (not set)
                 if(!isset($result[$array])){
                     $result[$array] = 1;
                 } else {

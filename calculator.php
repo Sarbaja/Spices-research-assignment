@@ -5,14 +5,40 @@
     //checking if the calculate value, submit is clicked or not
     if(isset($_POST['submit'])){
 
+        //getting first number after form submission
         $num1 = $_POST['num1'];
+
+        //getting second number after form submission
         $num2 = $_POST['num2'];
+
+        //getting select value after form submission
         $sel = $_POST['sel'];
 
         switch ($sel){
 
+            //addition criteria
             case 'add':
             $result = $num1 + $num2;
+            break;
+
+            //substraction criteria
+            case 'sub':
+            $result = $num1 - $num2;
+            break;
+
+            //Division criteria
+            case 'div':
+            $result = $num1 / $num2;
+            break;
+
+            //Multiplication criteria
+            case 'mul':
+            $result = $num1 * $num2;
+            break;
+
+            //Modulus criteria
+            case 'mod':
+            $result = $num1 % $num2;
             break;
 
             default:
@@ -20,8 +46,7 @@
             break;
         }
 
-        
-
+        echo $result;
     }
 
 
@@ -59,14 +84,15 @@
 
             <div class="row">
                 <form name="calculator" id="calculator" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                    First Input: <input type="text" name="num1"  required autofocus><br/><br/>
-                    Second Input: <input type="text" name="num2" required autofocus><br/><br/>
+                    First Input: <input type="text" name="num1"  value="<?php if(isset($_POST['num1'])){ echo $_POST['num1']; }?>" required autofocus><br/><br/>
+                    Second Input: <input type="text" name="num2" value="<?php if(isset($_POST['num2'])){ echo $_POST['num2']; }?>" required autofocus><br/><br/>
                     <select name="sel" required autofocus>
                         <option value="">Select</option>
                         <option value="add">Addition</option>
                         <option value="sub">Subtraction</option>
                         <option value="div">Division</option>
                         <option value="mul">Multiplication</option>
+                        <option value="mod">Modulus</option>
                     </select><br/><br/>
                     <input type="submit" name="submit" value="submit">
                 </form>
